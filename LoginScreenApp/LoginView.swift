@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Bindable var viewModel: ViewModel
+    @Bindable var viewModel: LoginViewModel
     
     var body: some View {
         ZStack {
-            Color(.blue.opacity(0.03))
+            Color(.blue.opacity(0.03)).ignoresSafeArea()
             
             VStack {
                 Text("Welcome!")
                     .font(.largeTitle)
                     .bold()
-                    .padding([.top], 200)
+                    .padding([.top], 100)
                 
                 
                 VStack(spacing: 15) {
@@ -37,12 +37,12 @@ struct LoginView: View {
             }
             
         }
-        .transition(.slide)
+     //   .transition(.offset(x: 0, y: 850))
     }
 }
 
 #Preview {
-    LoginView(viewModel: ViewModel())
+    LoginView(viewModel: LoginViewModel())
 }
 
 struct TFStyleViewModifier: ViewModifier {
@@ -62,8 +62,8 @@ extension View {
 }
 
 struct ButtonView: View {
-    var isDisabled: Bool
-    var action: () -> Void
+    let isDisabled: Bool
+    let action: () -> Void
     
     var body: some View {
         Button(action: action) {

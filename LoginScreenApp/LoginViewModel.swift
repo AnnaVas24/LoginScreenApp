@@ -9,7 +9,7 @@ import Observation
 import SwiftUI
 
 @Observable
-final class ViewModel {
+final class LoginViewModel {
     var user = User()
     var authenticated = false
     
@@ -21,16 +21,21 @@ final class ViewModel {
     }
     
     func logOut() {
+        user.name = ""
         user.password = ""
-        withAnimation {
-            authenticated.toggle()
-        }
+       toggleAuthentication()
+      //  authenticated.toggle()
     }
     
     func logIn() {
         guard user.name == sampleUsername, user.password == samplePassword else {
             return
         }
+        toggleAuthentication()
+      //  authenticated.toggle()
+    }
+    
+    private func toggleAuthentication() {
         withAnimation {
             authenticated.toggle()
         }
