@@ -39,7 +39,7 @@ struct NewLoginView: View {
                 .padding()
                 
                 Button1View(isDisabled: isLoginButtonDisabled) {
-                    
+                    print("Hello")
                 }
                 
                 Spacer()

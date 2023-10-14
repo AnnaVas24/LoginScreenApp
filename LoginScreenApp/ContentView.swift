@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var viewModel = LoginViewModel()
     
     var body: some View {
-        if !viewModel.authenticated {
+        if viewModel.authenticated {
             LoginView(viewModel: viewModel)
         } else {
             VStack {
